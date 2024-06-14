@@ -1,0 +1,46 @@
+ MiExcepcion:
+package ejemploexcepciones;
+public class MiExcepcion extends Exception {
+ MiExcepcion(){
+Pág 91
+ super();
+ }
+ MiExcepcion( String cadena ){
+ super( cadena ); 
+ }
+}
+
+Lanzadora:
+package ejemploexcepciones;
+public class Lanzadora {
+ void lanzaSiNegativo( int param ) throws MiExcepcion {
+ if ( param < 0 )
+ throw new MiExcepcion( "Numero negativo" );
+ }
+}
+
+PruebaExcepcion:
+package ejemploexcepciones;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+class PruebaExcepcion {
+ public static void main( String[] args ) {
+ FileInputStream entrada = null;
+ Lanzadora lanza = new Lanzadora();
+ int leo;
+ try {
+ entrada = new FileInputStream("archivo.txt");
+Pág 93
+ while ( ( leo = entrada.read() ) != -1 )
+ lanza.lanzaSiNegativo( leo );
+ System.out.println("Todo fue bien");
+ } catch ( MiExcepcion e ){ 
+ System.out.println("Excepcion presentada: " + e.getMessage() );
+ } catch ( IOException e ){ 
+ System.out.println("Excepcion presentada: " + e.getMessage() );
+ }
+ }
+}

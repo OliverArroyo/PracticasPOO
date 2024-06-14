@@ -1,0 +1,113 @@
+Figura:
+package Herencia;
+public class Figura {
+ String Nombre;
+ double Area;
+ public void Area(){
+ System.out.println("Método para calcular área de una Figura");
+ }
+ public void DibujarFigura(){
+ System.out.println("Método para dibujar una figura");
+ }
+}
+
+Triangulo:
+package Herencia;
+public class Triangulo extends Figura {
+ float Base, Altura;
+ public void Area(){
+Pág 16
+ System.out.println("Método para calcular área del Triángulo");
+ Area=Base*Altura/2;
+ System.out.println("El área del Triángulo es "+ Area);
+ }
+ public void DibujarFigura(){
+ System.out.println("Método para dibujar un Triángulo");
+ }
+}
+
+Circulo:
+package Herencia;
+public class Circulo extends Figura {
+ float Radio;
+ public void Area(){
+ System.out.println("Método para calcular área de un Círculo");
+ Area=Math.PI*Math.pow(Radio,2);
+ System.out.println("El área del Círculo es "+ Area);
+ }
+ public void DibujarFigura(){
+ System.out.println("Método para dibujar un Círculo");
+ }
+}
+
+Rectangulo
+package Herencia;
+public class Rectangulo extends Figura {
+ float Base, Altura;
+ public void Area(){
+ System.out.println("Método para calcular área de un Rectángulo");
+ Area=Base * Altura;
+ System.out.println("El área del Rectángulo es "+ Area);
+ }
+ public void DibujarFigura(){
+ System.out.println("Método para dibujar un Círculo");
+ }
+}
+
+App:
+package Herencia;
+import java.util.Scanner;
+public class PruebaHerencia {
+ public static void main(String[] args) {
+ int opcion;
+ Scanner tec = new Scanner(System.in);
+ Triangulo objtriangulo= new Triangulo();
+ Circulo objcirculo= new Circulo();
+ Rectangulo objrectangulo= new Rectangulo();
+ System.out.println("Menú de Opciones ");
+ System.out.println("1. Cálculo del área y dibujo de un Triángulo");
+ System.out.println("2. Cálculo del área y dibujo de un Círculo");
+Pág 18
+ System.out.println("3. Cálculo del área y dibujo de un Rectángulo");
+ System.out.println("4. Salir");
+ opcion= tec.nextInt();
+ switch(opcion){
+ case 1:
+ //Nombre de la figura
+ objtriangulo.Nombre= "Soy un Triángulo";
+ //Solicitud de datos para cálculo del área del triángulo
+ System.out.println("Dame la base del triángulo:");
+ objtriangulo.Base=tec.nextFloat();
+ System.out.println("Dame la altura del triángulo:");
+ objtriangulo.Altura=tec.nextFloat();
+ //Llamada al método para calcular el área del triángulo
+ objtriangulo.Area();
+ //Llamada al método para dibujar el triángulo
+ objtriangulo.DibujarFigura();
+ case 2:
+ //Nombre de la figura
+ objcirculo.Nombre= "Soy un Círculo";
+ //Solicitud de datos para cálculo del área del círculo
+ System.out.println("Dame el radio del círculo:");
+ objcirculo.Radio=tec.nextFloat();
+ //Llamada al método para calcular el área del círculo
+ objcirculo.Area();
+ //Llamada al método para dibujar el triángulo
+ objcirculo.DibujarFigura();
+ case 3:
+ //Nombre de la figura
+ objrectangulo.Nombre= "Soy un Rectángulo";
+ //Solicitud de datos para cálculo del érea del Rectángulo
+ System.out.println("Dame la base del Rectángulo:");
+ objrectangulo.Base=tec.nextFloat();
+ System.out.println("Dame la altura del Rectángulo:");
+ objrectangulo.Altura=tec.nextFloat();
+ //Llamada al método para calcular el área del Rectángulo
+ objrectangulo.Area();
+ //Llamada al método para dibujar el Rectángulo
+ objrectangulo.DibujarFigura();
+ case 4:
+ System.exit(0);
+ }
+ }
+}

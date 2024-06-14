@@ -1,0 +1,60 @@
+Alumno:
+package Alumnos;
+public class Alumno {
+ String nombre, apellidopaterno, apellidomaterno, sexo, direccion;
+ int edad;
+ public void listarDatos(){
+ System.out.println("Datos del Alumno ");
+ System.out.println("Nombre: "+ nombre);
+ System.out.println("Apellido paterno: " + apellidopaterno);
+ System.out.println("Apellido Materno: "+ apellidomaterno);
+ System.out.println("Sexo: "+ sexo);
+ System.out.println("Dirección: "+ direccion);
+ System.out.println("Edad: "+ edad);
+ }
+ public void altaAlumnos(String nom,String apaterno,String amaterno,
+ String sex, String dir, int ed) {
+ nombre=nom;
+ apellidopaterno=apaterno;
+ apellidomaterno=amaterno;
+ sexo=sex;
+ direccion=dir;
+ edad=ed;
+ }
+}
+
+PruebaAlumno:
+package Alumnos;
+import java.util.Scanner;
+public class PruebaAlumno {
+Pág 38
+ public static void main(String[] args) {
+ String nom="", apaterno="", amaterno="", sex="", dir="";
+ int ed=0;
+ //creamos dos objetos de la clase Alumno
+ Alumno A1= new Alumno();
+ Alumno A2= new Alumno();
+ int na;
+ Scanner tec= new Scanner(System.in);
+ //Capturamos los datos de cada alumno
+ for(int x=1;x<=2;x++){
+ System.out.println("Nombre del Alumno: " +x);
+ nom=tec.nextLine();
+ System.out.println("Apellido Paterno:");
+ apaterno=tec.nextLine();
+ System.out.println("Apellido Materno:");
+ amaterno=tec.nextLine();
+ System.out.println("Sexo: ");
+ sex=tec.nextLine();
+ System.out.println("Dirección: ");
+ dir=tec.nextLine();
+ System.out.println("Edad: ");
+ ed=tec.nextInt();
+ //Mandamos llamar el método para asignar los valores
+ capturados a variables de instancia
+ A1.altaAlumnos(nom, apaterno, amaterno, sex, dir, ed);
+ // Llamamos al método para listar los datos del alumno
+ A1.listarDatos();
+ }
+ }
+}

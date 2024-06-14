@@ -1,0 +1,58 @@
+InstrumentosMusicales:
+package musica;
+abstract class InstrumentosMusicales {
+ public String tipodeinstrumento;
+ public abstract void tocarInstrumento();
+}
+
+Guitarra:
+package musica;
+class Guitarra extends InstrumentosMusicales {
+ public Guitarra(){
+ tipodeinstrumento="Guitarra";
+ }
+ public void tocarInstrumento() {
+ System.out.println("Tocar La Guitarra");
+ }
+}
+
+Piano:
+package musica;
+class Piano extends InstrumentosMusicales {
+ public Piano(){
+ tipodeinstrumento="Piano";
+ }
+ public void tocarInstrumento() {
+ System.out.println("Tocar el Piano");
+ }
+}
+
+Violin:
+package musica;
+class Violin extends InstrumentosMusicales {
+ public Violin(){
+ tipodeinstrumento="Violín";
+ }
+ public void tocarInstrumento() {
+ System.out.println("Tocar el Violín");
+ }
+}
+
+PruebaInstrumentos:
+package musica;
+public class PruebaInstrumentos {
+public static void main(String arg[]){
+ InstrumentosMusicales miGuitarra= new Guitarra();
+ System.out.println("Instrumento : "+miGuitarra.tipodeinstrumento);
+ miGuitarra.tocarInstrumento();
+ System.out.println();
+ /**Objeto miSaxofon de tipo Instrumento */
+ InstrumentosMusicales miPiano= new Piano();
+ System.out.println("Instrumento : "+miPiano.tipodeinstrumento);
+ miPiano.tocarInstrumento();
+ System.out.println();
+ InstrumentosMusicales miViolin= new Violin();
+ System.out.println("Instrumento : "+miViolin.tipodeinstrumento);
+ miViolin.tocarInstrumento();
+}
+}

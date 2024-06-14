@@ -1,0 +1,57 @@
+CreaArchivo:
+package archivos;
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+public class CreaArchivo {
+ public static void main(String args[]) {
+Pág 100
+ try {
+ FileOutputStream f= new FileOutputStream("prograoo.txt");
+ DataOutputStream archivo = new DataOutputStream(f);
+ } catch (FileNotFoundException ex) {
+ System.out.println("Existe un error " + ex);
+ }
+ String nombre, direccion, telefono;
+ FileWriter w;
+ try {
+ w = new FileWriter("prograoo.txt",true);
+ PrintWriter wr = new PrintWriter(w);
+ for (int x = 1; x <= 3; x++) {
+ nombre=(JOptionPane.showInputDialog("Nombre: "));
+ direccion=(JOptionPane.showInputDialog("Dirección: "));
+ telefono = (JOptionPane.showInputDialog("Teléfono: "));
+ wr.println(nombre+" "+ direccion+ " "+ telefono);
+ }
+ wr.close();
+ w.close();
+ } catch (IOException ex) {
+ System.out.println("Error " + ex);
+ }
+ }
+}
+
+LeerArchivo:
+package archivos;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+public class LeerArchivo {
+ public static void main(String[] args) {
+ try {
+ BufferedReader fd=new BufferedReader(new FileReader("prograoo.txt"));
+ String linea = "";
+ while ((linea = fd.readLine()) != null) {
+ System.out.println(linea);
+ }
+ fd.close();
+ } catch (FileNotFoundException e) {
+ System.out.println("No pude abrir el archivo prograoo.txt");
+ } catch (IOException e) {
+ System.out.println("Error al leer");
+ }
+}
+}

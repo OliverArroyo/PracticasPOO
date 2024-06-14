@@ -1,0 +1,448 @@
+Usuario:
+public class Usuario {
+    private int idUsuario;
+    private String nombre;
+    private String direccion;
+    private int telefono;
+    private String email;
+    private int clave;
+    private int estado;
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setClave(int clave) {
+        this.clave = clave;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    public void modificarUsuario(String nombre, String direccion, int telefono, String email, int clave, int estado) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
+        this.clave = clave;
+        this.estado = estado;
+    }
+
+    public void eliminarUsuario() {
+        this.estado = 0; // 0 podría representar un estado inactivo o eliminado
+    }
+}
+
+
+Cajero:
+public class Cajero {
+    private int idEmpleado;
+    private int idCliente;
+    private float totalVenta;
+
+    public void procesarVenta() {
+    }
+
+    public void realizarDevoluciones() {
+    }
+
+    public void generarReporteVentas() {
+    }
+}
+
+
+SolicitarCredito:
+public class SolicitarCredito {
+    private String solicitudCredito;
+    private String nombre;
+    private String CURP;
+    private float fechaNacimiento;
+    private float numTelefono;
+    private String direccion;
+    private String infoCliente;
+    private String historialCrediticio;
+
+    public void getInfoSolicitudCredito() {
+    }
+
+    public void enviarSolicitud() {
+    }
+}
+
+
+Credito:
+public class Credito {
+    private double consultarSaldo;
+    private double abonarPago;
+    private String historialCompras;
+    private double limiteCred;
+    private double limiteCredDisponible;
+    private double aumentarLimiteCredito;
+    private int fechaCorte;
+    private double saldoCred;
+    private String infoCliente;
+    private String infoCred;
+    private String infoCompras;
+
+    public void consultarSaldo() {
+    }
+
+    public void abonarPago(double pago) {
+        this.saldoCred -= pago;
+    }
+
+    public void aumentarLimiteCredito(double nuevoLimite) {
+        this.limiteCred = nuevoLimite;
+    }
+}
+
+
+EstadoSolicitud:
+public class EstadoSolicitud {
+    public void solicitudProceso() {
+    }
+
+    public void solicitudAceptada() {
+    }
+
+    public void solicitudDenegada() {
+    }
+}
+
+
+DetallesVenta:
+public class DetallesVenta {
+    private double subTotal;
+    private double mostrarCostoProductoAComprar;
+    private double mostrarCostoProductoAVender;
+    private String detallesProd;
+    private double costoVenta;
+    private String setInfoVentaClientes;
+    private double costoTotalCompra;
+
+    public void mostrarCostoProductoAComprar() {
+    }
+
+    public void mostrarCostoProductoAVender() {
+    }
+}
+
+
+ Venta :
+import java.util.Date;
+
+public class Venta {
+    private int idVenta;
+    private int idUsuario;
+    private int idCliente;
+    private String tipoPago;
+    private String tipoComprobante;
+    private String numComprobante;
+    private Date fecha;
+    private float impuesto;
+    private float total;
+
+    public void agregarVenta() {
+    }
+
+    public void calcularTotal() {
+    }
+
+    public void procesarPago() {
+    }
+
+    public void generarRecibo() {
+    }
+
+    public void getInfoVentaAClientes() {
+    }
+}
+
+
+Administrador:
+public class Administrador {
+    private int idAdministrador;
+    private String nombre;
+    private String direccion;
+    private int telefono;
+    private String email;
+    private int clave;
+    private int estado;
+
+    public void setIdUsuario(int idUsuario) {
+        this.idAdministrador = idUsuario;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setClave(int clave) {
+        this.clave = clave;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+}
+
+
+Proveedores:
+public class Proveedores {
+    private int telefono;
+    private int idProveedores;
+    private String direccion;
+    private String nombreProveedor;
+
+    public int getIdProveedor() {
+        return idProveedores;
+    }
+
+    public String getNombre() {
+        return nombreProveedor;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedores = idProveedor;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombreProveedor = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+}
+
+
+Clientes :
+public class Clientes {
+    private String identificacion;
+    private int tarjeta;
+    private String nombre;
+    private String telefono;
+
+    public void agregarNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void agregarTarjeta(int tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+
+    public void agregarTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+}
+
+
+Articulo:
+public class Articulo {
+    private int numColumna;
+    private int numEstante;
+    private int codigo;
+    private int IDcategoria;
+    private String nombre;
+    private float precioCompra;
+    private float precioVenta;
+    private int stock;
+    private String descripcion;
+    private String imagen;
+    private String estado;
+
+    public void agregarArticulo() {
+    }
+
+    public void eliminarArticulo() {
+    }
+
+    public void bajaArticulo() {
+    }
+
+    public void consultarArticulo() {
+    }
+
+    public void modificarArticulo() {
+    }
+}
+
+
+Almacen:
+public class Almacen {
+    private int numColumna;
+    private int numEstante;
+    private String seccion;
+    private int IDarticulo;
+
+    public void setCatalogo() {
+    }
+}
+
+
+Categoria:
+public class Categoria {
+    private int IDcategoria;
+    private String nombre;
+    private String descripcion;
+    private String estado;
+    private String imagen;
+    private int IDcatPadre;
+
+    public void agregarCategoria() {
+    }
+
+    public void eliminarCategoria() {
+    }
+
+    public void consultarCategoria() {
+    }
+
+    public void modificarCategoria() {
+    }
+}
+
+
+App:
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class App {
+
+    public static void main(String[] args) {
+        Usuario usuario1 = new Usuario();
+        usuario1.setIdUsuario(1);
+        usuario1.setNombre("Juan Pérez");
+        usuario1.setDireccion("Calle Falsa 123");
+        usuario1.setTelefono(123456789);
+        usuario1.setEmail("juan@example.com");
+        usuario1.setClave(1234);
+        usuario1.setEstado(1);
+
+        Usuario usuario2 = new Usuario();
+        usuario2.setIdUsuario(2);
+        usuario2.setNombre("María López");
+        usuario2.setDireccion("Avenida Siempreviva 456");
+        usuario2.setTelefono(987654321);
+        usuario2.setEmail("maria@example.com");
+        usuario2.setClave(5678);
+        usuario2.setEstado(1);
+
+        Clientes cliente1 = new Clientes();
+        cliente1.agregarNombre("Carlos Santana");
+        cliente1.agregarTarjeta(111222);
+        cliente1.agregarTelefono("5544332211");
+
+        Clientes cliente2 = new Clientes();
+        cliente2.agregarNombre("Ana García");
+        cliente2.agregarTarjeta(333444);
+        cliente2.agregarTelefono("6677889900");
+
+        Articulo articulo1 = new Articulo();
+        articulo1.numColumna = 1;
+        articulo1.numEstante = 1;
+        articulo1.codigo = 101;
+        articulo1.IDcategoria = 1;
+        articulo1.nombre = "Laptop";
+        articulo1.precioCompra = 500.00f;
+        articulo1.precioVenta = 700.00f;
+        articulo1.stock = 10;
+        articulo1.descripcion = "Laptop de alta gama";
+        articulo1.imagen = "laptop.jpg";
+        articulo1.estado = "Disponible";
+
+        Articulo articulo2 = new Articulo();
+        articulo2.numColumna = 1;
+        articulo2.numEstante = 2;
+        articulo2.codigo = 102;
+        articulo2.IDcategoria = 2;
+        articulo2.nombre = "Teléfono";
+        articulo2.precioCompra = 200.00f;
+        articulo2.precioVenta = 300.00f;
+        articulo2.stock = 20;
+        articulo2.descripcion = "Teléfono inteligente";
+        articulo2.imagen = "telefono.jpg";
+        articulo2.estado = "Disponible";
+
+        Venta venta1 = new Venta();
+        venta1.idVenta = 1;
+        venta1.idUsuario = usuario1.getIdUsuario();
+        venta1.idCliente = cliente1.getTarjeta();
+        venta1.tipoPago = "Tarjeta de crédito";
+        venta1.tipoComprobante = "Factura";
+        venta1.numComprobante = "FAC001";
+        venta1.fecha = new Date();
+        venta1.impuesto = 16.00f;
+        venta1.total = articulo1.precioVenta + venta1.impuesto;
+
+        Venta venta2 = new Venta();
+        venta2.idVenta = 2;
+        venta2.idUsuario = usuario2.getIdUsuario();
+        venta2.idCliente = cliente2.getTarjeta();
+        venta2.tipoPago = "Efectivo";
+        venta2.tipoComprobante = "Recibo";
+        venta2.numComprobante = "REC002";
+        venta2.fecha = new Date();
+        venta2.impuesto = 16.00f;
+        venta2.total = articulo2.precioVenta + venta2.impuesto;
+
+        List<Venta> ventas = new ArrayList<>();
+        ventas.add(venta1);
+        ventas.add(venta2);
+
+        for (Venta venta : ventas) {
+            System.out.println("ID Venta: " + venta.idVenta);
+            System.out.println("ID Usuario: " + venta.idUsuario);
+            System.out.println("ID Cliente: " + venta.idCliente);
+            System.out.println("Tipo de Pago: " + venta.tipoPago);
+            System.out.println("Tipo de Comprobante: " + venta.tipoComprobante);
+            System.out.println("Número de Comprobante: " + venta.numComprobante);
+            System.out.println("Fecha: " + venta.fecha);
+            System.out.println("Impuesto: " + venta.impuesto);
+            System.out.println("Total: " + venta.total);
+            System.out.println("-------------------------");
+        }
+    }
+}

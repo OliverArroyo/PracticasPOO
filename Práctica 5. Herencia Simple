@@ -1,0 +1,116 @@
+Persona:
+package Herencia;
+public class Persona {
+ String nombre, domicilio, telefono, curp, rfc;
+Float sueldoneto;
+ int edad;
+ public void CalculodeSueldoNeto(){
+ System.out.println("Método para calcular el sueldo
+neto de un trabajador");
+ } }
+
+EmpleadoAdministrativo:
+package Herencia;
+public class EmpleadoAdministrativo extends Persona {
+ float sueldobase, isr;
+ public void altaTrabajador(String nom, String dom, String tel,
+String curp, String rfc, int ed,float sb, float sn, float isr){
+ nombre=nom;
+ domicilio=dom;
+ telefono=tel;
+ this.curp=curp;
+ this.rfc=rfc;
+ edad=ed;
+ sueldobase=sb;
+ sueldoneto=sn;
+ this.isr=isr;
+ }
+}
+public float CalculodeSueldoNeto(float sb, float imp){
+ sueldobase=sb;
+ isr=imp;
+Pág 52
+ sueldoneto=sueldobase-isr;
+ return sueldoneto;
+ }
+
+
+EmpleadoOperativo:
+package Herencia;
+public class EmpleadoOperativo extends Persona{
+ float sueldobase, horastrabajadas, precioporhora;
+ public void altaTrabajador(String nom,String dom,String tel,String
+curp, String rfc, int ed, float sb,float sn, float pph,float ht){
+ nombre=nom;
+ domicilio=dom;
+ telefono=tel;
+Pág 49
+ this.curp=curp;
+ this.rfc=rfc;
+ edad=ed;
+ sueldobase=sb;
+ sueldoneto=sn;
+ precioporhora=pph;
+ horastrabajadas=ht;
+ }
+ public void listarDatos(){
+ JOptionPane.showMessageDialog(null, "Datos del Empleado \n"
+ +"Nombre: "+ nombre+"\n Domicilio: " + domicilio
+ +"\n Teléfono: "+ telefono
+ +"\n CURP: "+ curp
+ +"\n RFC: "+ rfc
+ +"\n Edad: "+ edad
+ +"\n Sueldo Base: "+ sueldobase
+ +"\n Horas Trabajadas: "+ horastrabajadas
+ +"\n Precio por Hora: "+ precioporhora
+ +"\n Sueldo Neto: "+ sueldoneto);
+ }
+}
+
+PruebaEmpleados:
+package Herencia;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+public class PruebaEmpleados {
+public static void main(String[] args) {
+int op;
+ String ne, dom, tel, curp, rfc;
+ float sb, sn, imp, pph;
+ int ed, ht;
+ EmpleadoAdministrativo EA1= new EmpleadoAdministrativo();
+ EmpleadoOperativo EO1= new EmpleadoOperativo();
+ Scanner tec= new Scanner(System.in);
+ while (true){
+ op=Integer.parseInt(JOptionPane.showInputDialog("Menú de Opciones \n"
+ + "1.- Alta Empleado Operativo\n"
+ + "2.- Cálculo de Sueldo Empleado Administrativo\n”
+ + "3.- Listar datos Empleado Operativo\n"
+ + "4.- Salir"));
+ switch(op){
+ case 1:
+ ne=JOptionPane.showInputDialog("Nombre del Empleado: ");
+ ed=Integer.parseInt(JOptionPane.showInputDialog("Edad: "));
+ dom=JOptionPane.showInputDialog("Domicilio: ");
+ tel=JOptionPane.showInputDialog("Teléfono: ");
+ ht=Integer.parseInt(JOptionPane.showInputDialog("Horas Trabajadas:"));
+ pph=Float.parseFloat(JOptionPane.showInputDialog("Precio por Hora:"));
+ curp=JOptionPane.showInputDialog("CURP: ");
+ rfc=JOptionPane.showInputDialog("RFC: ");
+ sn=ht*pph;
+ EO1.altaTrabajador(nom,dom,tel,curp, rfc, ed, sn, sn, pph, sn);
+ break;
+ case 2:
+ sb=Float.parseFloat(JOptionPane.showInputDialog("Sueldo base:"));
+ imp=sb*.32f;
+ JOptionPane.showMessageDialog(null,"El Sueldo Neto del Empleado
+ es: "+EA1.CalculodeSueldoNeto(sb, imp));
+ break
+ case 3:
+ EO1.listarDatos();
+ break;
+ case 4:
+ System.exit(0);
+ }
+ }
+}
+}

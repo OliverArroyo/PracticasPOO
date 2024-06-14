@@ -1,0 +1,60 @@
+package ejemplointerfaces;
+public interface Relaciones {
+ boolean esMayorQue(Relaciones a);
+ boolean esMenorQue(Relaciones a);
+ boolean esIgualQue(Relaciones a);
+}
+
+Comparaciones:
+package ejemplointerfaces;
+public class Comparaciones implements Relaciones {
+ int numero1;
+ int numero2;
+ public Comparaciones(int numero1, int numero2) {
+ this.numero1 = numero1;
+ this.numero2 = numero2;
+ }
+ public boolean esMayorQue() {
+ if ((numero1 ) <= (numero2)) {
+ return false;
+ }
+ return true;
+Pág 74
+ }
+ public boolean esMenorQue() {
+ if ((numero1 ) >= (numero2)) {
+ return false;
+ }
+ return true;
+ }
+ public boolean esIgualQue() {
+ if (numero1 != numero2) {
+ return false;
+ }
+ return true;
+ }
+}
+
+PruebaInterface:
+package ejemplointerfaces;
+import java.util.Scanner;
+public class PruebaInterface {
+ public static void main(String[] args) {
+ int n1, n2;
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Teclea el número uno");
+ n1 = sc.nextInt();
+ System.out.println("Teclea el número dos");
+ n2 = sc.nextInt();
+ Comparaciones f1 = new Comparaciones(n1, n2);
+ if (f1.esMayorQue()) {
+ System.out.println(f1.numero1 + " > " + f1.numero2);
+ } else
+ if (f1.esMenorQue()){
+ System.out.println(f1.numero1 + " < " + f1.numero2);
+ } else
+ if (f1.esIgualQue()){
+ System.out.println(f1.numero1 + " < " + f1.numero2);
+ }
+ }
+}

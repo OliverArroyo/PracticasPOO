@@ -1,0 +1,78 @@
+Figura:
+abstract class Figura {
+    abstract double calcularArea();
+}
+
+Circulo:
+class Circulo extends Figura {
+    private double radio;
+
+    public Circulo(double radio) {
+        this.radio = radio;
+    }
+
+    @Override
+    double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+}
+
+Triángulo:
+class Triangulo extends Figura {
+    private double base;
+    private double altura;
+
+    public Triangulo(double base, double altura) {
+        this.base = base;
+        this.altura = altura;
+    }
+
+    @Override
+    double calcularArea() {
+        return (base * altura) / 2;
+    }
+}
+Rectángulo:
+class Rectangulo extends Figura {
+    private double ancho;
+    private double alto;
+
+    public Rectangulo(double ancho, double alto) {
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+
+    @Override
+    double calcularArea() {
+        return ancho * alto;
+    }
+}
+
+App:
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el radio del círculo: ");
+        double radio = scanner.nextDouble();
+        Circulo circulo = new Circulo(radio);
+        System.out.println("El área del círculo es: " + circulo.calcularArea());      
+        System.out.print("Ingrese la base del triángulo: ");
+        double base = scanner.nextDouble();
+        System.out.print("Ingrese la altura del triángulo: ");
+        double altura = scanner.nextDouble();
+        Triangulo triangulo = new Triangulo(base, altura);
+        System.out.println("El área del triángulo es: " + triangulo.calcularArea());
+
+        System.out.print("Ingrese el ancho del rectángulo: ");
+        double ancho = scanner.nextDouble();
+        System.out.print("Ingrese el alto del rectángulo: ");
+        double alto = scanner.nextDouble();
+        Rectangulo rectangulo = new Rectangulo(ancho, alto);
+        System.out.println("El área del rectángulo es: " + rectangulo.calcularArea());
+
+        scanner.close();
+    }
+}
